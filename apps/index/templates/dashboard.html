@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main %}
+    {% load i18n %}
+
+    <div class="mdl-card mdl-shadow--2dp employer-form">
+        <div class="mdl-card__title">
+            <h2>Procesar en GOOGLE</h2>
+        </div>
+
+        <div class="mdl-card__supporting-text">
+            <form action="{% url 'index' %}" class="form" method="POST">
+                {% csrf_token %}
+                <div class="form__article">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--6-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            {{ form.query }}
+                            <label class="mdl-textfield__label" for="id_query">Candidato y/o Partido Político</label>
+                        </div>
+
+                        <div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                            <input class="mdl-textfield__input" value="Puno" type="text" id="city" name="city"
+                                   tabIndex="-1"/>
+                            <label class="mdl-textfield__label" for="city">Ciudad</label>
+                            <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu dark_dropdown" for="city">
+                                <li class="mdl-menu__item">Juliaca</li>
+                                <li class="mdl-menu__item">Puno</li>
+                            </ul>
+                            <label for="city">
+                                <i class="mdl-icon-toggle__label material-icons">arrow_drop_down</i>
+                            </label>
+                        </div>
+                        <div class="mdl-cell mdl-cell--2-col ">
+                            <div class="form__action" style="margin-top: 15px; !important;">
+                                <button id="submit_button" type="submit"
+                                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--2-col-phone">
+        <div class="mdl-card mdl-shadow--2dp trending">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Resultado</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                <ul class="mdl-list">
+
+                    {% for object in search_results %}
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content list__item-text">{{ forloop.counter }}
+                                {{ object.name }}
+                            {{ object.description }}
+                            </span>
+                            {#                            <span class="mdl-list__item-secondary-content">#}
+                            {#                                        {{ object.name }}#}
+                            {#                            </span>#}
+
+                            {#                            <span class="mdl-list__item-secondary-content trending__percent">1 %</span>#}
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock main %}

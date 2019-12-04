@@ -1,7 +1,7 @@
 beautifulsoup4==4.6.3
 certifi==2018.8.13
 chardet==3.0.4
-Django==2.1
+Django==2.1.11
 fake-useragent==0.1.10
 future==0.16.0
 Google-Search-API==1.1.14

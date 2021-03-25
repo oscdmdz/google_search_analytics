@@ -8,7 +8,7 @@ Google-Search-API==1.1.14
 idna==2.7
 multidict==4.4.0a38
 pytz==2018.5
-PyYAML==4.2b4
+PyYAML==5.4
 requests==2.19.1
 selenium==2.53.6
 six==1.11.0

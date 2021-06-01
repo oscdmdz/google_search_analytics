@@ -13,7 +13,7 @@ requests==2.19.1
 selenium==2.53.6
 six==1.11.0
 Unidecode==1.0.22
-urllib3==1.23
+urllib3==1.26.5
 vcrpy==1.13.0
 wrapt==1.10.11
 yarl==1.2.6
